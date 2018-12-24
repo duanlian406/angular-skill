@@ -1,0 +1,16 @@
+<div *ngIf="show; else data;">
+  this is show
+</div>
+<button (click)="this.show = !this.show">toggle show</button>
+<ng-template #data let-input let-obj="arg">
+  <div>this is a template {{input|json}} {{obj|json}}</div>
+</ng-template>
+<div *ngTemplateOutlet="data; context:{$implicit:{value:1}, arg:{a:1,b:2}}"></div>
+
+<ng-template appTarget let-color><h3 [style.color]="color">A</h3></ng-template>
+<ng-template appTarget let-color><h3 [style.color]="color">B</h3></ng-template>
+<ng-template appTarget let-color><h3 [style.color]="color">C</h3></ng-template>
+<div *ngTemplateOutlet="target; context:{$implicit:color}"></div>
+<button (click)="changeTemplate()">next</button>
+<button (click)="changeToBlueColor()">change to blue color</button>
+<button (click)="changeToRedColor()">change to red color</button>

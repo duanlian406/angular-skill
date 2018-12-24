@@ -1,0 +1,7 @@
+<ul>
+  <ng-container *ngFor="let item of items; let odd=odd; let i = index ">
+    <li *ngIf="!odd">
+      {{i}} {{item|json}}
+    </li>
+  </ng-container>
+</ul>

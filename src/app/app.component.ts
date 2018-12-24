@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-skill';
+  data = { num: 1 };
+  add() {
+    this.data.num++;
+  }
 }

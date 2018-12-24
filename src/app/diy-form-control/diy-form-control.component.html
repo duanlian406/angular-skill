@@ -1,0 +1,22 @@
+<!-- <form #form="ngForm">
+  <app-counter name="counter" [(ngModel)]="defaultValue" [disabled]="disabled"></app-counter>
+  <div>{{form.value|json}}</div>
+  <div><button (click)="toggleDisabled()">toggleDisabled</button></div>
+  <button type="submit">submit</button>
+</form> -->
+<form [formGroup]="form">
+  <app-counter formControlName="counter" [min]="min.value" [max]="max.value"></app-counter>
+  <div>
+    <h3>动态修改数据验证规则</h3>
+    min:<input type="number" #min (change)="0" value="0">
+    max:<input type="number" #max (change)="0" value="10">
+  </div>
+  <div *ngIf="form.get('counter').invalid">
+    <div>{{form.get('counter').errors|json}}</div>
+  </div>
+  <app-password formControlName="password" [min]="6" [max]="16"></app-password>
+  <div *ngIf="form.get('password').invalid">
+    <div>{{form.get('password').errors|json}}</div>
+  </div>
+  <div>{{form.value|json}}</div>
+</form>

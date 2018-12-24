@@ -1,0 +1,7 @@
+<div>
+  A:<input type="radio" value="A" [(ngModel)]="target">
+  B:<input type="radio" value="B" [(ngModel)]="target">
+  C:<input type="radio" value="C" [(ngModel)]="target">
+</div>
+<div *ngComponentOutlet="map.get(target);content:myContent"></div>
+<ng-container appDynamicComponent></ng-container>

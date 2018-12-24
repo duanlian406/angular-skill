@@ -1,0 +1,12 @@
+<ng-template #tmp let-input="data">
+  <div>i am a template {{input|json}}</div> 
+</ng-template>
+<ng-container *appTemplateOutlet="tmp;data:{value:1}"></ng-container>
+<div *appIf="show;else tmp;data:{value:2}">
+  i am show template
+</div>
+<button (click)="show=!show">toggleShow</button>
+<ng-container *appFor="let item of items;let index = index;let odd = odd; let first = first; let last = last;">
+  <div>{{index}} {{item.name}} : {{item.value}} {{odd}} {{first}} {{last}}</div>
+</ng-container>
+<button (click)="createItem()">insertItem</button>
